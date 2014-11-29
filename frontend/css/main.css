@@ -1,16 +1,38 @@
 
 #map-canvas { 
+    display: block;
+    float: left;
     height: 100%;
-    width: 100%;
+    width: 80%;
     margin: 0;
     padding: 0;
 }
 
 #map-view .panel-body {
     height: 500px;
+    width: 100%;
 }
 
+#map-view .panel-sideform {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 20%;
+}
 
+#map-view input {
+    display: block;
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10px;
+}
+
+fieldset legend {
+    font-size: 12pt;
+}
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
 /*

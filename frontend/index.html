@@ -29,23 +29,26 @@
         <!-- Add your site or application content here -->
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div id="map-view" class="panel panel-default">
                         <div class="panel-heading">Map</div>
                         <div class="panel-body">
+                            <div class="panel-sideform">
+                                <form method="GET">
+                                    <fieldset>
+                                        <legend>Date Range</legend>
+                                        <input type="date" label="Start:" value="DateStart"/>
+                                        <input type="date" label="End" value="DateEnd"/>
+                                        <input type="submit" value="Update">
+                                    </fieldset>
+                                </form>
+                            </div>  
                             <div id="map-canvas"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div id="details-view" class="panel panel-default">
-                        <div class="panel-heading">Details</div>
-                        <div class="panel-body">
-                            
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
