@@ -3,7 +3,7 @@
     display: block;
     float: left;
     height: 100%;
-    width: 80%;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -21,7 +21,7 @@
     width: 20%;
 }
 
-#map-view input {
+input {
     display: block;
     float: left;
     width: 90%;
