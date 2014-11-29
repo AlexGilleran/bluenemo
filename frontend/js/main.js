@@ -6,6 +6,7 @@ requirejs.config({
 	}
 });
 
-define(["view/map-view"], function(mapView) {
+define(["view/map-view", "data/fusion-data"], function(mapView, fusionData) {
+	fusionData.attachTo($(document));
 	mapView.attachTo($("#map-view"));
 });
