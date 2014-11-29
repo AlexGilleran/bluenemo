@@ -17,11 +17,15 @@ define(["flight"], function(flight) {
 					rowObj[data.columns[i]] = row[i];
 				}
 
+				delete rowObj.BoatSerialNumber;
+				delete rowObj.TimeKey;
+
 				output.push(rowObj);
 			});
 
 			this.trigger("data-served", {
-				rows: output
+				rows: output,
+				columns: data.columns
 			});
 		};
 

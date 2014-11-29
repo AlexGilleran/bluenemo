@@ -44,8 +44,13 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 		};
 
 		this.onMarkerHover = function(row, marker) {
-			var content = _.template(callout, {row: row});
-			console.log(content);
+			var info = {};
+
+			this.attr.displayParams.forEach(function(param) {
+				info[param] = row[param];
+			});
+
+			var content = _.template(callout, {row: info});
 
 			var infoWindow = new google.maps.InfoWindow({
 	      		content: content
@@ -58,15 +63,15 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 			infoWindow.open(this.attr.map, marker);
 		};
 
+		this.onParamsSelected = function(event, data) {
+			this.attr.displayParams = data.params;
+		};
+
 		this.after("initialize", function() {
 			this.on(document, "data-served", this.onDataServed);
+			this.on(document, "params-selected", this.onParamsSelected);
 
-			this.trigger("data-requested");
-
-			var mapOptions = {
-	          zoom: 8
-	        };
-	        this.attr.map = new google.maps.Map(this.select("canvasSelector")[0], mapOptions);
+	        this.attr.map = new google.maps.Map(this.select("canvasSelector")[0], {});
 	    });
 	});
 });

@@ -13,11 +13,11 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
 
         <script src="lib/modernizr-2.6.2.min.js"></script>
     </head>
@@ -45,20 +45,20 @@
                 <div class="panel-heading">Real time Data</div>
                     
                     <div class ="col-md-3">
-                        <div id="map-paramaeters" class="panel panel-default">
+                        <div id="parameters-view" class="panel panel-default">
                             <div class="panel-heading">Parameters</div>
                             <div class="panel-body">
                                 <div class="panel-sideform">
-                                    <form method="GET">
-                                        <fieldset>
-                                            <legend>Date Range</legend>
-                                            <input type="date" label="Start:" value="DateStart"/>
-                                            <input type="date" label="End" value="DateEnd"/>
-                                            <input type="submit" value="Update">
-                                        </fieldset>
-                                    </form>
+                                    <fieldset>
+                                        <legend>Date Range</legend>
+                                        <input id="start-date" type="date" label="Start:" value="DateStart"/>
+                                        <input id="end-date" type="date" label="End" value="DateEnd"/>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Parameters</legend>
+                                        <div id="parameters-container"></div>
+                                    </fieldset>
                                 </div> 
-                                <div id="map-canvas"> </div>
                             </div>
                         </div>
                     </div>
@@ -74,8 +74,8 @@
             </div>
         </div>
 
-        <script src="/lib/jquery-2.1.1.js"></script>
-        <script src="/lib/bootstrap/js/bootstrap.js"></script>
+        <script src="lib/jquery-2.1.1.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaBawzgTiLpNWpRCfYE1U0gb_zzQjyoyM"></script>
         <script data-main="js/main" src="lib/require.js"></script>
     </body>
