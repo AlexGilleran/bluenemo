@@ -5,13 +5,20 @@ define(["flight"], function(flight) {
 		});
 
 		this.onDataServed = function(event, data) {
+			var latLongList = [];
 			data.rows.forEach(function(row) {
-				var marker = new google.maps.Marker({
-				    position: new google.maps.LatLng(row.Latitude, row.Longitude),
-				    map: this.attr.map,
-				    title:"Hello World!"
-				});
-			}, this);
+				latLongList.push(new google.maps.LatLng(row.Latitude, row.Longitude))
+			});
+
+			var boatPath = new google.maps.Polyline({
+				path: latLongList,
+				geodesic: true,
+				strokeColor: '#FF0000',
+				strokeOpacity: 1.0,
+				strokeWeight: 2
+			});
+
+			boatPath.setMap(this.attr.map);
 		};
 
 		this.after("initialize", function() {
