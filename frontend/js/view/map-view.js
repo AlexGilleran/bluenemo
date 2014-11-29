@@ -30,10 +30,12 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 
 			for (var i = 0; i < data.rows.length; i += 200) {
 				var row = data.rows[i];
+				  var image = 'img/BoatSmall.png';
 
 				var marker = new google.maps.Marker({
-				    position: new google.maps.LatLng(row.Latitude, row.Longitude),
-				    title: row.Latitude + " " + row.Longitude
+				    position: new google.maps.LatLng(row.Latitude - 0.1, row.Longitude),
+				    title: row.Latitude + " " + row.Longitude,
+				    icon: image
 				});
 
 				google.maps.event.addListener(marker, "mouseover", this.onMarkerHover.bind(this, row, marker));
