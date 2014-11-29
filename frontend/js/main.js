@@ -7,5 +7,5 @@ requirejs.config({
 });
 
 define(["view/map-view"], function(mapView) {
-	mapView.attachTo($("#main"));
+	mapView.attachTo($("#map-view"));
 });
