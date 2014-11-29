@@ -2,7 +2,9 @@ requirejs.config({
 	baseUrl: 'js',
 	paths: {
 		lib: "../lib",
-		flight: "../lib/flight"
+		flight: "../lib/flight",
+		lodash: "../lib/lodash",
+		template: "../template"
 	}
 });
 
