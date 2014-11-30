@@ -22,7 +22,7 @@ define(["flight"], function(flight) {
 					"' AND Date_Time <= '" + toDate.format(this.attr.fusionDateFormat) + "'";
 			}
 
-			sql += "ORDER BY TimeKey DESC;";
+			sql += "ORDER BY TimeKey ASC;";
 			return sql;
 		};
 

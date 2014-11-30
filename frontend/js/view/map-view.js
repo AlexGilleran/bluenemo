@@ -3,10 +3,16 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 
 	return flight.component(function() {
 		this.defaultAttrs({
-			canvasSelector: "#map-canvas"
+			canvasSelector: "#map-canvas",
+			markers: []
 		});
 
 		this.onDataServed = function(event, data) {
+			this.attr.markers.forEach(function(marker) {
+				marker.setMap(null);
+			});
+			this.attr.markers = [];
+	
 			var latLongList = [];
 			data.rows.forEach(function(row) {
 				latLongList.push(new google.maps.LatLng(row.Latitude, row.Longitude))
@@ -45,7 +51,7 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 				});
 
 				google.maps.event.addListener(marker, "mouseover", this.onMarkerHover.bind(this, row, marker));
-				marker.setMap(this.attr.map);
+				this.attr.markers.push(marker);
 			}
 
 			var row = data.rows[data.rows.length-1];
@@ -57,15 +63,16 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 				    // The anchor for this image is the base of the flagpole at 0,32.
 				    anchor: new google.maps.Point(15, 52)}; 
 
-			var marker = new google.maps.Marker({
+			var boatMarker = new google.maps.Marker({
 			    position: new google.maps.LatLng(row.Latitude, row.Longitude),
 			    title: row.Latitude + " " + row.Longitude,
 			    icon: image
 			});
+			this.attr.markers.push(boatMarker);
 
-			marker.setMap(this.attr.map);
-
-			
+			this.attr.markers.forEach(function(marker) {
+				marker.setMap(this.attr.map);
+			}, this);
 		};
 
 		this.onMarkerHover = function(row, marker) {
