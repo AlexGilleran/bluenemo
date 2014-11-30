@@ -171,8 +171,8 @@
 <lable for="date_time"><input type="text"   id="date_time" name="date_time" value="2014-05-31" /></lable>
 
 <lable for="submit"><input type="submit" class="btn btn-default" name="submit" value="Show" id="submit"  /></lable>
-					   <a href="form.html" role="button" class="btn btn-default">Download Data</a>
 								 	  		</form>
+					   <a style="float: left; width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px;" href="form.html" target="_parent" role="button" class="btn btn-default">Download Data</a>
 										</div>
 									
 
