@@ -76,7 +76,7 @@
 
 	 				  {
 	 					  echo
-	 			"['".mysql_result($results,$j, 'time')."','_index.php?time_date=%22".mysql_result($results,$j, 'time')."%22',".mysql_result($results,$j, 'wind_speed').",".mysql_result($results,$j, 'wind_speed')."], ";
+	 			"['".mysql_result($results,$j, 'time')."','graph.php?time_date=%22".mysql_result($results,$j, 'time')."%22',".mysql_result($results,$j, 'wind_speed').",".mysql_result($results,$j, 'wind_speed')."], ";
 
 	 				   }
 
@@ -88,7 +88,7 @@
 	 		           view.setColumns([0, 2]);
 
 	 		           var options = {title:"Mouse over bar & click to break down data by time",
-	 		                width:800, height:400,
+	 		                width:1200, height:400,
 				
 	 		                hAxis: {title: "Ocean Data",   },
 	 					   legend: 'none',
@@ -112,11 +112,18 @@
 	 		        </script>
 	 		    		    <!-- Le styles -->
 	 		    	      <style type="text/css">
-		    		
+						  .clear {clear:both;}
 	 		    		#chart_div {
-	 		    			margin:0;padding:0;
+	 		    			margin:0;padding:0; float:right;
 	 					}
-		    	
+						#form_input {width:350px; margin-left:50px;
+							
+						}
+						.graph_form
+						{
+							width:350px; margin-left: 50px;
+							
+						}
 	 		    	  	  .money {
 	 		    	  		  text-align:right; width:400px;  
 	 		    	  	  }
@@ -138,83 +145,76 @@
 	 		    	      </style>
 				  
 	     </head>
-		 <body>			  
-		 	  	<legend>Time Search</legend>
-		 	  		<h5>Enter the day/month you would like to see results for in following format 2014-05-06 Year-Month-Day</h5>
-		 	  		<form action='graph.php' target='graph.php' method="GET">
-
-
-		 	  		   <lable for="date_time"><input type="text"  id="date_time" name="date_time" value="2014-05-31" /></lable>
-
-
-
-
-		 	  		</select>
-		 	  		   </lable>
-		 	  		   <lable for="submit"><input type="submit" name="submit" value="Show" id="submit"  /></lable>
-					   
-					   
-				
-
-
-
-		 	  		</form>
+		 <body>	
+			<h2>Wind Speed by Time and Date</h2>
+			
 			 					    	 <div id='chart_div'>
+											 
 			 					   	 </div>
-			 						 	  	  <?php
-			 						 	 ini_set('display_errors', 0);
-			 						 	      require_once 'login.php';
-         
-			 						 	 $db_server = mysql_connect($db_hostname, $db_username, $db_password);
-			 						 	 if (mysql_select_db($db_database))
-			 						 	 if (!$db_server) 
-			 						 	 {
-			 						 	 die("Unable to connect to MySQL. " . mysql_error());
-			 						 	 }
-			 						 	 if (mysql_select_db(!$db_database))
-			 						 	  {
-			 						 	   die("Unable to select database. " . mysql_error());
-			 						 	 }
-
-			 						 	 if (mysql_select_db($db_database))
-			 						 	 if (!$db_server) 
-			 						 	 {
-			 						 	 die("Unable to connect to MySQL. " . mysql_error());
-			 						 	 }
-			 						 	 if (mysql_select_db(!$db_database))
-			 						 	  {
-			 						 	   die("Unable to select database. " . mysql_error());
-
-			 						 }
-			 						 	  if (mysql_select_db($db_database))
-			 						 	       {
-			 						 	    $date_time = $_GET['date_time']; 
-			 						 	       }
-	 
-			 						 	 		  			echo
-			 						 	 		  	   		"  <a href='ocius_results_json.php?date_time=$date_time' target='_blank'>
-			 						 	 		  	       JSON </a> |";
-			 						 	 					?>
-			 						 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'xml',escape:'false'});" target='_blank'> XML</a> |
-			 						 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'sql'});"> SQL</a> |
-
-			 						 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'csv',escape:'false'});">  CSV</a> |
-			 						 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'txt',escape:'false'});">  TXT</a> |
-
-
-			 						 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'excel',escape:'false'});"> XLS</a> |
-			 						 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'doc',escape:'false'});">  Word</a> |
-			 						 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'powerpoint',escape:'false'});"> PowerPoint</a> 
-
-	  		
-
-
+									
+			 						 	  	 <div class='clear'></div>
   	
-     	 
+									 
+									 <div id='form_input'>		  
+								 	  	<h4>Time Search</h4>
+								 	  		<h5>Enter the day/month you would like to see results for in following format 2014-05-06 Year-Month-Day</h5>
+								 	  		<form action='graph.php' target='graph' method="GET">
+<lable for="date_time"><input type="text"   id="date_time" name="date_time" value="2014-05-31" /></lable>
+
+<lable for="submit"><input type="submit"  name="submit" value="Show" id="submit"  /></lable>
+					   
+								 	  		</form>
+										</div>
+									
+
+ 	  	  <?php
+ 	 ini_set('display_errors', 0);
+ 	      require_once 'login.php';
+
+ 	 $db_server = mysql_connect($db_hostname, $db_username, $db_password);
+ 	 if (mysql_select_db($db_database))
+ 	 if (!$db_server) 
+ 	 {
+ 	 die("Unable to connect to MySQL. " . mysql_error());
+ 	 }
+ 	 if (mysql_select_db(!$db_database))
+ 	  {
+ 	   die("Unable to select database. " . mysql_error());
+ 	 }
+
+ 	 if (mysql_select_db($db_database))
+ 	 if (!$db_server) 
+ 	 {
+ 	 die("Unable to connect to MySQL. " . mysql_error());
+ 	 }
+ 	 if (mysql_select_db(!$db_database))
+ 	  {
+ 	   die("Unable to select database. " . mysql_error());
+
+ }
+ 	  if (mysql_select_db($db_database))
+ 	       {
+ 	    $date_time = $_GET['date_time']; 
+ 	       }
+
+ 	 		  			echo
+ 	 		  	   		"  <a href='ocius_results_json.php?date_time=$date_time' target='_blank'>
+ 	 		  	       JSON </a> |";
+ 	 					?>
+ 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'xml',escape:'false'});" target='_blank'> XML</a> |
+ 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'sql'});"> SQL</a> |
+
+ 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'csv',escape:'false'});">  CSV</a> |
+ 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'txt',escape:'false'});">  TXT</a> |
+
+
+ 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'excel',escape:'false'});"> XLS</a> |
+ 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'doc',escape:'false'});">  Word</a> |
+ 	 	  		<a href='#' onClick ="$('#results').tableExport({type:'powerpoint',escape:'false'});"> PowerPoint</a> 
 
 	
 		
-			 						 	 		<?php
+			 						 <div class='graph_form'>	 		<?php
 			 						 		ini_set('display_errors', 0);
 			 						 		     require_once 'login.php';
          
@@ -275,5 +275,8 @@
   
   
 			 						 	 	 ?>
+					 						 	  	
+
+										</div>	 
 											    </body>
 												</html>
