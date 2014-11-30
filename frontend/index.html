@@ -13,13 +13,20 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
 
         <script src="lib/modernizr-2.6.2.min.js"></script>
+        <script>
+            // This is some heinous 1998-level hackery but whatever
+
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+            }
+        </script>
     </head>
     <body>
         <!--[if lt IE 9]>
@@ -32,7 +39,7 @@
                 <div id="Main View" class="panel panel-default">
                     <div class="panel-heading">
                         <a class="img-wrap" href="/">
-                        <img src="/img/logo.png" alt="" class="logo">
+                        <img src="img/logo.png" alt="" class="logo">
                         </a>
                         <a href="#"id="show-menu" class="mobile-menu icon-menu"></a>
                     </div>
@@ -41,24 +48,22 @@
             </div>
 
                 <div class="row">
-
-                <div class="panel-heading">Real time Data</div>
                     
                     <div class ="col-md-3">
-                        <div id="map-paramaeters" class="panel panel-default">
+                        <div id="parameters-view" class="panel panel-default">
                             <div class="panel-heading">Parameters</div>
                             <div class="panel-body">
                                 <div class="panel-sideform">
-                                    <form method="GET">
-                                        <fieldset>
-                                            <legend>Date Range</legend>
-                                            <input type="date" label="Start:" value="DateStart"/>
-                                            <input type="date" label="End" value="DateEnd"/>
-                                            <input type="submit" value="Update">
-                                        </fieldset>
-                                    </form>
+                                    <fieldset>
+                                        <legend>Date Range</legend>
+                                        <input id="from-date" type="date" label="Start:" value="2014-05-30"/>
+                                        <input id="to-date" type="date" label="End" value="2014-06-01"/>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Parameters</legend>
+                                        <div id="parameters-container"></div>
+                                    </fieldset>
                                 </div> 
-                                <div id="map-canvas"> </div>
                             </div>
                         </div>
                     </div>
@@ -70,13 +75,23 @@
                             </div>
                         </div>
                     </div>
-               </div>                
+               </div>
+                <div class="row">   
+                    <div class ="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Graph</div>
+                            <iframe class="graph-iframe" name="graph" src="graph.php"
+                                scrolling="no" frameborder="none" onload="javascript:resizeIframe(this);"></iframe>
+                        </div>
+                    </div>
+                </div>             
             </div>
         </div>
 
-        <script src="/lib/jquery-2.1.1.js"></script>
-        <script src="/lib/bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaBawzgTiLpNWpRCfYE1U0gb_zzQjyoyM"></script>
+        <script src="lib/jquery-2.1.1.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaBawzgTiLpNWpRCfYE1U0gb_zzQjyoyM">
+        </script>
         <script data-main="js/main" src="lib/require.js"></script>
     </body>
 </html>

@@ -9,7 +9,10 @@
 }
 
 #map-view .panel-body {
-    height: 500px;
+    width: 100%;
+}
+
+.panel-body img {
     width: 100%;
 }
 
@@ -21,11 +24,6 @@
     width: 20%;
 }
 
-.graph-iframe {
-    height: 100%;
-    width: 100%;
-}
-
 input {
     display: block;
     float: left;
@@ -35,13 +33,36 @@ input {
     margin-bottom: 10px;
 }
 
-.download-button {
-    width: 300px;
-    margin: 0 auto;
-}
-
 fieldset legend {
     font-size: 12pt;
+}
+
+.link-item {
+    display: block;
+    float: left;
+    width: 22%;
+    text-align: center;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 2%;
+    padding-top: 20px;
+    border: solid #DDDDDD 1px;
+}
+
+.link-item img{
+    display: block;
+    float: left;
+    width: 80%;
+    margin-right:10%;    
+    margin-left:10%;
+}
+
+p {
+margin: 1em 0;
+font-weight: 300;
+font-size: 1.125em;
+line-height: 1.4;
+
 }
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
