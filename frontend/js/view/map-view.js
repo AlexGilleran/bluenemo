@@ -12,6 +12,11 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 				marker.setMap(null);
 			});
 			this.attr.markers = [];
+
+			if (this.attr.boatPath) {
+				this.attr.boatPath.setMap(null);
+				delete this.attr.boatPath;
+			}
 	
 			var latLongList = [];
 			data.rows.forEach(function(row) {
@@ -24,7 +29,7 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 			});
 			this.attr.map.fitBounds(bounds);
 
-			var boatPath = new google.maps.Polyline({
+			this.attr.boatPath = new google.maps.Polyline({
 				path: latLongList,
 				geodesic: true,
 				strokeColor: '#FF0000',
@@ -32,7 +37,7 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 				strokeWeight: 2
 			});
 
-			boatPath.setMap(this.attr.map);
+			this.attr.boatPath.setMap(this.attr.map);
 
 			for (var i = 0; i < data.rows.length; i += 20) {
 				var row = data.rows[i];
