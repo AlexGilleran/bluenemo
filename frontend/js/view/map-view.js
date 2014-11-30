@@ -43,7 +43,7 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 			}
 
 			var row = data.rows[data.rows.length-1];
-			var image = 'img/BoatSmall.png';
+			var image = 'img/BoatMed.png';
 
 			var marker = new google.maps.Marker({
 			    position: new google.maps.LatLng(row.Latitude, row.Longitude),
