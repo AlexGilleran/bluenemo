@@ -30,7 +30,13 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 
 			for (var i = 0; i < data.rows.length; i += 20) {
 				var row = data.rows[i];
-				  var image = 'img/Empty.png';
+				    var image = {url: 'img/Empty.png',
+				    // This marker is 20 pixels wide by 32 pixels tall.
+				    size: new google.maps.Size(10, 11),
+				    // The origin for this image is 0,0.
+				    origin: new google.maps.Point(0,0),
+				    // The anchor for this image is the base of the flagpole at 0,32.
+				    anchor: new google.maps.Point(5, 5)}; 	
 
 				var marker = new google.maps.Marker({
 				    position: new google.maps.LatLng(row.Latitude, row.Longitude),
@@ -43,7 +49,13 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 			}
 
 			var row = data.rows[data.rows.length-1];
-			var image = 'img/BoatMed.png';
+				    var image = {url: 'img/BoatMed.png',
+				    // This marker is 20 pixels wide by 32 pixels tall.
+				    size: new google.maps.Size(63, 67),
+				    // The origin for this image is 0,0.
+				    origin: new google.maps.Point(0,0),
+				    // The anchor for this image is the base of the flagpole at 0,32.
+				    anchor: new google.maps.Point(15, 52)}; 
 
 			var marker = new google.maps.Marker({
 			    position: new google.maps.LatLng(row.Latitude, row.Longitude),
