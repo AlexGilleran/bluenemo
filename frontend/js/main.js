@@ -8,7 +8,12 @@ requirejs.config({
 	}
 });
 
-define(["view/map-view", "data/fusion-data"], function(mapView, fusionData) {
+define(["view/map-view", "data/fusion-data", "view/parameters-view"], function(mapView, fusionData, paramsView) {
+	var displayParams = ["Latitude", "Longitude"];
+
 	fusionData.attachTo($(document));
-	mapView.attachTo($("#map-view"));
+	mapView.attachTo($("#map-view"), {displayParams: displayParams});
+	paramsView.attachTo($("#parameters-view"), {displayParams: displayParams});
+
+	$(document).trigger("data-requested");
 });
