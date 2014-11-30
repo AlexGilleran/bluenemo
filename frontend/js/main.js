@@ -4,6 +4,7 @@ requirejs.config({
 		lib: "../lib",
 		flight: "../lib/flight",
 		lodash: "../lib/lodash",
+		moment: "../lib/moment",
 		template: "../template"
 	}
 });
@@ -14,6 +15,4 @@ define(["view/map-view", "data/fusion-data", "view/parameters-view"], function(m
 	fusionData.attachTo($(document));
 	mapView.attachTo($("#map-view"), {displayParams: displayParams});
 	paramsView.attachTo($("#parameters-view"), {displayParams: displayParams});
-
-	$(document).trigger("data-requested");
 });

@@ -1,4 +1,4 @@
-define(["flight", "lodash", "text!template/parameters.html"], function(flight, _, template) {
+define(["flight", "lodash", "text!template/parameters.html", "moment"], function(flight, _, template, newMoment) {
 	"use strict";
 
 	return flight.component(function() {
@@ -9,6 +9,8 @@ define(["flight", "lodash", "text!template/parameters.html"], function(flight, _
 				Pic_Data: true
 			},
 			"datePickersSelector": "[type=date]",
+			"fromDateSelector": "#from-date",
+			"toDateSelector": "#to-date",
 			"paramsSelector": "[type=checkbox]",
 			"parametersContainerSelector": "#parameters-container"
 		});
@@ -27,7 +29,10 @@ define(["flight", "lodash", "text!template/parameters.html"], function(flight, _
 		};
 
 		this.onDateChanged = function() {
-
+			this.trigger("data-requested", {
+				fromDate: newMoment(this.select("fromDateSelector").val()),
+				toDate: newMoment(this.select("toDateSelector").val())
+			});
 		};
 
 		this.onParamsChanged = function() {
@@ -50,9 +55,11 @@ define(["flight", "lodash", "text!template/parameters.html"], function(flight, _
 			this.on(document, "data-served", this.onDataServed);
 
 			this.on("change", {
-				"datePickersSelector": this.onDateChanged,
+				"datePickersSelector": _.debounce(this.onDateChanged.bind(this), 1000),
 				"paramsSelector": this.onParamsChanged
 			});
+
+			this.onDateChanged();
 		});
 	});
 });

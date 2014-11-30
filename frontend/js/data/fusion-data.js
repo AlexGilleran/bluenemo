@@ -1,23 +1,34 @@
 define(["flight"], function(flight) {
 	return flight.component(function() {
-		this.onDataRequested = function() {
+		this.defaultAttrs({
+			fusionDateFormat: "MM/DD/YY",
+		});
+
+		this.onDataRequested = function(event, params) {
+			var params = params || {};
+
 			$.get("https://www.googleapis.com/fusiontables/v2/query?sql=" + 
-				encodeURIComponent(this.getSql()) + 
+				this.getSql(params.fromDate, params.toDate) + 
 				"&key=AIzaSyBq6tmLr4DUJaXxVfHLwdoLv5UxomLv4Pw")
 				.done(this.onDataReceived.bind(this))
 				.fail(this.onDataFailed.bind(this));
 		};
 
-		this.getSql = function() {
+		this.getSql = function(fromDate, toDate) {
 			var sql = "SELECT * FROM 1Zxy_07rdpivaxnw_dYipgp6CNSWen17tUUHKKxH9 ";
 			
+			if (fromDate && toDate) {
+				sql += "WHERE Date_Time >= '" + fromDate.format(this.attr.fusionDateFormat) +
+					"' AND Date_Time <= '" + toDate.format(this.attr.fusionDateFormat) + "'";
+			}
 
-			// sql += "ORDER BY Date_Time ASC;";
+			sql += "ORDER BY TimeKey DESC;";
 			return sql;
 		};
 
 		this.onDataReceived = function(data) {
 			var output = [];
+			data.rows = data.rows || [];
 
 			// make data into something useful.
 			data.rows.forEach(function(row) {
