@@ -51,7 +51,6 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 
 				var marker = new google.maps.Marker({
 				    position: new google.maps.LatLng(row.Latitude, row.Longitude),
-				    title: row.Latitude + " " + row.Longitude,
 				    icon: image
 				});
 
