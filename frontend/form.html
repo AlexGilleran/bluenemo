@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap-theme.css">
+
+        <script src="lib/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="container">
+            <div class="row">
+                <div id="Main View" class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="img-wrap" href="/">
+                        <img src="/img/logo.png" alt="" class="logo">
+                        </a>
+                        <a href="#"id="show-menu" class="mobile-menu icon-menu"></a>
+                    </div>
+
+                </div>
+            </div>
+
+                <div class="row">
+
+                    <div id="map-paramaeters" class="panel panel-default">
+                        <div class="panel-heading">Working with Raw Data</div>
+                            <div class="panel-body">
+                                <legend> Understanding the Parameters</legend>
+                            </div>
+                            <div class="panel-body">
+                                <legend> Download Raw Data </legend>
+                                <div class ="col-md-6">
+                                    <div class="panel-sideform">
+                                        <form method="GET">
+                                            <fieldset>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="Wind-Speed">Wind Speed <br>
+                                                        <input type="checkbox" name="Wind-Angle">Wind Angle <br>
+                                                        <input type="checkbox" name="Heading">Heading <br>
+                                                        <input type="checkbox" name="Azimuth"> Azimuth <br>
+                                                        <input type="checkbox" name="Pitch">Pitch <br>
+                                                        <input type="checkbox" name="Roll">Roll <br>
+                                                        <input type="checkbox" name="Altitude">Altitude <br>
+                                                        <input type="checkbox" name="Air-Pressure"> Air Pressure <br>
+                                                        <input type="checkbox" name="Date-Time"> TimeStamp <br>
+                                                    </label>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> 
+                                </div>
+                                <div class ="col-md-6">
+                                    <div class="panel-sideform">
+                                        <form method="GET">
+                                            <fieldset>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="CHL">CHL <br>
+                                                        <input type="checkbox" name="NTU">NTU <br>
+                                                        <input type="checkbox" name="THERM">THERM <br>
+                                                        <input type="checkbox" name="Temperature"> Temperature <br>
+                                                        <input type="checkbox" name="Conductivity"> Conductivity <br>
+                                                        <input type="checkbox" name="PRESS"> PRESS <br>
+                                                        <input type="checkbox" name="BattV"> BattV <br>
+                                                        <input type="checkbox" name="P1V"> P1V <br>
+                                                        <input type="checkbox" name="P2V"> P2V <br>
+                                                    </label>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div> 
+                                </div>
+                                <div class ="checkbox">
+                                    <label>
+                                        <br>
+                                        <input type="checkbox" name="agree-t&c"> <strong>Agree to Terms and Conditions</strong>
+                                    </label>
+                                </div>
+                                <input class="download-button" type="submit" value="Start Download" >
+                                <div id="map-canvas"> </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>                
+            </div>
+        </div>
+    </body>
+</html>

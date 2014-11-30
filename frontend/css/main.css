@@ -30,6 +30,11 @@ input {
     margin-bottom: 10px;
 }
 
+.download-button {
+    width: 300px;
+    margin: 0 auto;
+}
+
 fieldset legend {
     font-size: 12pt;
 }
