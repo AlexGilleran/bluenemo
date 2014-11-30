@@ -108,7 +108,9 @@ define(["flight", "lodash", "text!template/map-callout.html"], function(flight, 
 			this.on(document, "data-served", this.onDataServed);
 			this.on(document, "params-selected", this.onParamsSelected);
 
-	        this.attr.map = new google.maps.Map(this.select("canvasSelector")[0], {});
+	        this.attr.map = new google.maps.Map(this.select("canvasSelector")[0], {
+				mapTypeId: google.maps.MapTypeId.SATELLITE
+	        });
 	    });
 	});
 });
