@@ -170,8 +170,8 @@
 								 	  		<form action='graph.php' target='graph' method="GET">
 <lable for="date_time"><input type="text"   id="date_time" name="date_time" value="2014-05-31" /></lable>
 
-<lable for="submit"><input type="submit"  name="submit" value="Show" id="submit"  /></lable>
-					   
+<lable for="submit"><input type="submit" class="btn btn-default" name="submit" value="Show" id="submit"  /></lable>
+					   <a href="form.html" role="button" class="btn btn-default">Download Data</a>
 								 	  		</form>
 										</div>
 									

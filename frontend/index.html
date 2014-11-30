@@ -14,19 +14,12 @@
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/home.css">
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
 
         <script src="lib/modernizr-2.6.2.min.js"></script>
-        <script>
-            // This is some heinous 1998-level hackery but whatever
-
-            function resizeIframe(obj) {
-                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-            }
-        </script>
     </head>
     <body>
         <!--[if lt IE 9]>
@@ -38,7 +31,7 @@
             <div class="row">
                 <div id="Main View" class="panel panel-default">
                     <div class="panel-heading">
-                        <a class="img-wrap" href="/">
+                        <a class="img-wrap" href="index.html">
                         <img src="img/logo.png" alt="" class="logo">
                         </a>
                         <a href="#"id="show-menu" class="mobile-menu icon-menu"></a>
@@ -49,49 +42,50 @@
 
                 <div class="row">
                     
-                    <div class ="col-md-3">
-                        <div id="parameters-view" class="panel panel-default">
-                            <div class="panel-heading">Parameters</div>
-                            <div class="panel-body">
-                                <div class="panel-sideform">
-                                    <fieldset>
-                                        <legend>Date Range</legend>
-                                        <input id="from-date" type="date" label="Start:" value="2014-05-30"/>
-                                        <input id="to-date" type="date" label="End" value="2014-06-01"/>
-                                    </fieldset>
-                                    <fieldset>
-                                        <legend>Parameters</legend>
-                                        <div id="parameters-container"></div>
-                                    </fieldset>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div id="map-view" class="panel panel-default">
-                            <div class="panel-heading">Map</div>
-                            <div class="panel-body">
-                                <div id="map-canvas"></div>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-                <div class="row">   
-                    <div class ="col-md-12">
+                    <div class ="col-md-8">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Graph</div>
-                            <iframe class="graph-iframe" name="graph" src="graph.php"
-                                scrolling="no" frameborder="none" onload="javascript:resizeIframe(this);"></iframe>
+                            <div class="panel-body">
+                                <div class="image-head">
+                                    <h1>BlueBottle</h1>
+                                    <p>BlueBottle USV drones operate on energy available at sea. They require no fuel, no crew and no supplies. They are self-deploying and self-retrieving and can roam widely or kept on station virtually indefinitely. The first planned autonomous voyage is a circumnavigation of Lord Howe Island following a transit from mainland Australia.</p>
+                                    <a href="data.html"><img src="img/HomeMap.png" /></a>
+                                </div>
+                                <div class="main-links">
+                                    <div class="link-item">
+                                        <img src="img/BlueNemo.jpg" />
+                                        Blue Nemo's Story
+                                    </div>
+                                    <div class="link-item">
+										<a href="form.html">
+                                        	<img src="img/Data.jpg" />Data Sets
+									    </a>
+                                    </div>
+                                    <div class="link-item">
+                                        <img src="img/OceanTrends.png" />Ocean Trends
+                                    </div>
+                                    <div class="link-item">
+                                        <img src="img/images.jpg" />Images
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>             
+                    <div class="col-md-4">
+                        <a class="twitter-timeline"
+                            href="https://twitter.com/OciusBlueNemo"
+                            height="520px"
+                            data-widget-id="518344712827052032">Tweets by @OciusBlueNemo</a>
+                        <script>
+                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                        </script>
+                    </div>
+               </div>                
             </div>
         </div>
 
         <script src="lib/jquery-2.1.1.js"></script>
         <script src="lib/bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaBawzgTiLpNWpRCfYE1U0gb_zzQjyoyM">
-        </script>
+
         <script data-main="js/main" src="lib/require.js"></script>
     </body>
 </html>
