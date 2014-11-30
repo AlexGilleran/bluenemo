@@ -90,7 +90,7 @@
 	 		           var options = {title:"Mouse over bar & click to break down data by time",
 	 		                width:1200, height:400,
 				
-	 		                hAxis: {title: "Ocean Data",   },
+	 		                hAxis: {title: "Wind Speed by Time and Date",   },
 	 					   legend: 'none',
 			
 	 		              vAxis: {format: '#,###', title: "",  }
@@ -143,10 +143,19 @@
 	 		    			  div.objectives:hover  {height:200px; padding:2px; overflow:auto }
 			  
 	 		    	      </style>
+	
+					      <script type='text/javascript' src="http://infoaus.net/budget/jspdf/libs/base64.js"></script>
+					      <script type='text/javascript' src="http://infoaus.net/budget/jspdf/libs/sprintf.js"></script>
+					      <script type='text/javascript' src="http://infoaus.net/budget/jquery.base64.js"></script>
+					      <script type='text/javascript' src="http://infoaus.net/budget/tableExport.js"></script>
+					      <script type='text/javascript' src="http://infoaus.net/budget/jquery.base64.js"></script>
+					      <script type='text/javascript' src="http://infoaus.net/budget/html2canvas.js"></script>
+					      <script type='text/javascript' src="http://infoaus.net/budget/jspdf/jspdf.js"></script>
+						  
 				  
 	     </head>
 		 <body>	
-			<h2>Wind Speed by Time and Date</h2>
+			
 			
 			 					    	 <div id='chart_div'>
 											 
