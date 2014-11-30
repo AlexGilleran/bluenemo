@@ -6,8 +6,7 @@ define(["flight", "lodash", "text!template/parameters.html"], function(flight, _
 			excludeCols : {
 				BoatSerialNo: true,
 				TimeKey: true,
-				Pic_Data: true,
-				Date_Time: true
+				Pic_Data: true
 			},
 			"datePickersSelector": "[type=date]",
 			"paramsSelector": "[type=checkbox]",

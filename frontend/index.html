@@ -20,6 +20,13 @@
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
 
         <script src="lib/modernizr-2.6.2.min.js"></script>
+        <script>
+            // This is some heinous 1998-level hackery but whatever
+
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+            }
+        </script>
     </head>
     <body>
         <!--[if lt IE 9]>
@@ -73,7 +80,8 @@
                     <div class ="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">Graph</div>
-                            <iframe class="graph-iframe" name="graph" src="graph.php" frameborder="none"></iframe>
+                            <iframe class="graph-iframe" name="graph" src="graph.php"
+                                scrolling="no" frameborder="none" onload="javascript:resizeIframe(this);"></iframe>
                         </div>
                     </div>
                 </div>             
