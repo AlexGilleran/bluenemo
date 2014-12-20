@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
+
+        <script src="lib/modernizr-2.6.2.min.js"></script>
+        <script>
+            // This is some heinous 1998-level hackery but whatever
+
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+            }
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="container">
+            <div class="row">
+                <div id="Main View" class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="img-wrap" href="/">
+                        <img src="img/logo.png" alt="" class="logo">
+                        </a>
+                        <a href="#"id="show-menu" class="mobile-menu icon-menu"></a>
+                    </div>
+
+                </div>
+            </div>
+
+                <div class="row">
+                    
+                    <div class ="col-md-3">
+                        <div id="parameters-view" class="panel panel-default">
+                            <div class="panel-heading">Parameters</div>
+                            <div class="panel-body">
+                                <div class="panel-sideform">
+                                    <fieldset>
+                                        <legend>Date Range</legend>
+                                        <input id="from-date" type="date" label="Start:" value="2014-05-30"/>
+                                        <input id="to-date" type="date" label="End" value="2014-06-01"/>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Parameters</legend>
+                                        <div id="parameters-container"></div>
+                                    </fieldset>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="map-view" class="panel panel-default">
+                            <div class="panel-heading">Map</div>
+                            <div class="panel-body">
+                                <div id="map-canvas"></div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <div class="row">   
+                    <div class ="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Graph</div>
+                            <iframe class="graph-iframe" name="graph" src="graph.php"
+                                scrolling="no" frameborder="none" onload="javascript:resizeIframe(this);"></iframe>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
+
+        <script src="lib/jquery-2.1.1.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaBawzgTiLpNWpRCfYE1U0gb_zzQjyoyM">
+        </script>
+        <script data-main="js/main" src="lib/require.js"></script>
+    </body>
+</html>
