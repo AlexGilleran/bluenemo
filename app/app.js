@@ -2,11 +2,7 @@ var http = require('http'),
     fs = require('fs');
 
 
-<<<<<<< HEAD
 fs.readFile('./index.html', function (err, html) {
-=======
-fs.readFile('/index.html', function (err, html) {
->>>>>>> 51cba90b5067d53e3d762a26b99d16969dfc9256
     if (err) {
         throw err; 
     }       
