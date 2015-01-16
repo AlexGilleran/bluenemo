@@ -3,7 +3,7 @@ var http = require('http'),
 
 
 
-fs.readFile('./index.html', function (err, html) {
+fs.readFile('../frontend/index.html', function (err, html) {
     if (err) {
         throw err; 
     }       
